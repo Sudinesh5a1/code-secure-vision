@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const AboutSection: React.FC = () => {
   return (
@@ -50,9 +51,9 @@ const AboutSection: React.FC = () => {
               <div className="absolute inset-0 border-2 border-cyber-teal rounded-lg transform translate-x-4 translate-y-4"></div>
               <div className="absolute inset-0 bg-cyber-blue/20 rounded-lg overflow-hidden">
                 <img 
-                  src="https://via.placeholder.com/400/1fb4ff/0a0f2f?text=SR"
+                  src="/lovable-uploads/f90c7dbc-2ff6-4f1a-b668-5a5c4c93d944.png"
                   alt="Sudinesh Reddy Vuluvla" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-full h-full object-cover transition-all duration-300"
                 />
               </div>
             </div>
