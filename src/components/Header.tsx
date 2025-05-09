@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 interface NavItem {
   name: string;
@@ -20,6 +21,8 @@ const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Track scroll position to update header styling
   useEffect(() => {
@@ -27,20 +30,22 @@ const Header: React.FC = () => {
       // Set header background when scrolled
       setIsScrolled(window.scrollY > 50);
 
-      // Find which section is currently in view
-      const sections = document.querySelectorAll("section[id]");
-      let currentSection = "";
+      if (isHomePage) {
+        // Find which section is currently in view
+        const sections = document.querySelectorAll("section[id]");
+        let currentSection = "";
 
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionId = section.getAttribute("id") || "";
+        sections.forEach((section) => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionId = section.getAttribute("id") || "";
 
-        if (sectionTop <= 100) {
-          currentSection = sectionId;
-        }
-      });
+          if (sectionTop <= 100) {
+            currentSection = sectionId;
+          }
+        });
 
-      setActiveSection(currentSection);
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,7 +54,7 @@ const Header: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
 
   return (
     <header
@@ -57,15 +62,15 @@ const Header: React.FC = () => {
       ${isScrolled ? "bg-cyber-dark/90 backdrop-blur-md shadow-lg shadow-cyber-blue/10 py-3" : "bg-transparent py-5"}`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-xl font-mono font-bold text-cyber-teal flex items-center gap-2">
+        <Link to="/" className="text-xl font-mono font-bold text-cyber-teal flex items-center gap-2">
           <span className="text-2xl text-cyber-blue">{"{"}</span>
           SR
           <span className="text-2xl text-cyber-blue">{"}"}</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item, index) => (
+          {isHomePage && navItems.map((item, index) => (
             <a
               key={item.name}
               href={item.href}
@@ -81,9 +86,7 @@ const Header: React.FC = () => {
             </a>
           ))}
           <Button className="cyber-button ml-4" asChild>
-            <a href="/Sudinesh_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
+            <Link to="/resume">Resume</Link>
           </Button>
         </nav>
 
@@ -102,7 +105,7 @@ const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-cyber-navy/95 backdrop-blur-lg py-6 px-6 shadow-lg border-t border-cyber-blue/20">
           <nav className="flex flex-col space-y-4">
-            {navItems.map((item, index) => (
+            {isHomePage && navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -115,10 +118,8 @@ const Header: React.FC = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="cyber-button" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                Resume
-              </a>
+            <Button className="cyber-button" asChild onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/resume">Resume</Link>
             </Button>
           </nav>
         </div>
