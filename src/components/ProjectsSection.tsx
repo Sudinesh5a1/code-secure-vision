@@ -1,7 +1,8 @@
 
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, ExternalLink, Github, Lock, Shield } from "lucide-react";
+import { Code, ExternalLink, Github, Lock, Shield, FileImage, Images } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface Project {
   title: string;
@@ -18,19 +19,22 @@ const projects: Project[] = [
     description: 
       "A Python script that analyzes and rates the strength of a given password to help users create secure passwords and reduce vulnerabilities.",
     tech: ["Python", "Security", "CLI"],
-    github: "https://github.com/Sudinesh5a1/Sudinesh5a1/blob/main/passwordstengthchecker.py"
+    github: "https://github.com/Sudinesh5a1/Sudinesh5a1/blob/main/passwordstengthchecker.py",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=800&h=500"
   },
   {
     title: "Network Traffic Analyzer",
     description: 
       "Tool that monitors and analyzes network traffic to identify suspicious patterns and potential security threats.",
     tech: ["Python", "Networking", "Data Analysis"],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=500"
   },
   {
     title: "Web Application Security Scanner",
     description: 
       "A scanner that identifies common vulnerabilities in web applications such as XSS, SQL injection, and CSRF vulnerabilities.",
     tech: ["Python", "Web Security", "OWASP"],
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800&h=500"
   }
 ];
 
@@ -53,22 +57,27 @@ const ProjectsSection: React.FC = () => {
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="cyber-card relative group"
+              className="cyber-card relative group overflow-hidden"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <CardContent className="p-0">
-                {/* Project Image or Icon */}
-                <div className="h-48 bg-gradient-to-br from-cyber-dark to-cyber-navy flex items-center justify-center p-6">
-                  {project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="max-h-full object-cover"
-                    />
-                  ) : (
-                    <Shield size={64} className="text-cyber-blue opacity-70 group-hover:text-cyber-teal transition-colors" />
-                  )}
+                {/* Project Image */}
+                <div className="h-52 relative">
+                  <AspectRatio ratio={16/9} className="bg-gradient-to-br from-cyber-dark to-cyber-navy">
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <FileImage size={64} className="text-cyber-blue opacity-70 group-hover:text-cyber-teal transition-colors" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark to-transparent opacity-60"></div>
+                  </AspectRatio>
                 </div>
                 
                 <div className="p-6">
