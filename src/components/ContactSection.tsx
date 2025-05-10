@@ -2,6 +2,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ContactSection: React.FC = () => {
   return (
@@ -23,61 +24,73 @@ const ContactSection: React.FC = () => {
           <Card className="cyber-card">
             <CardContent className="p-8">
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 text-cyber-blue">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <p className="font-medium text-xl text-cyber-lightest mb-1">Email</p>
-                    <a href="mailto:sudineshreddy@gmail.com" className="cyber-link text-lg">
-                      sudineshreddy@gmail.com
-                    </a>
-                  </div>
+                <div className="relative w-full h-full rounded-lg overflow-hidden border-2 border-cyber-blue/30">
+                  <AspectRatio ratio={1/1}>
+                    <img 
+                      src="/lovable-uploads/522de71e-206f-42b4-a9e4-d486f93800bd.png"
+                      alt="Sudinesh Reddy Vuluvla" 
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </AspectRatio>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 text-cyber-blue">
-                    <Phone size={24} />
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 text-cyber-blue">
+                      <Mail size={24} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-xl text-cyber-lightest mb-1">Email</p>
+                      <a href="mailto:sudineshreddy@gmail.com" className="cyber-link text-lg">
+                        sudineshreddy@gmail.com
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-xl text-cyber-lightest mb-1">Phone</p>
-                    <a href="tel:7661020602" className="cyber-link text-lg">
-                      +91 7661020602
-                    </a>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 text-cyber-blue">
+                      <Phone size={24} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-xl text-cyber-lightest mb-1">Phone</p>
+                      <a href="tel:7661020602" className="cyber-link text-lg">
+                        +91 7661020602
+                      </a>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 text-cyber-blue">
-                    <Linkedin size={24} />
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 text-cyber-blue">
+                      <Linkedin size={24} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-xl text-cyber-lightest mb-1">LinkedIn</p>
+                      <a 
+                        href="https://linkedin.com/in/sudinesh-reddy-vuluvala-43972327a" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cyber-link break-all text-lg"
+                      >
+                        sudinesh-reddy-vuluvala-43972327a
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-xl text-cyber-lightest mb-1">LinkedIn</p>
-                    <a 
-                      href="https://linkedin.com/in/sudinesh-reddy-vuluvala-43972327a" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cyber-link break-all text-lg"
-                    >
-                      sudinesh-reddy-vuluvala-43972327a
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 text-cyber-blue">
-                    <Github size={24} />
-                  </div>
-                  <div>
-                    <p className="font-medium text-xl text-cyber-lightest mb-1">GitHub</p>
-                    <a 
-                      href="https://github.com/Sudinesh5a1" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cyber-link text-lg"
-                    >
-                      Sudinesh5a1
-                    </a>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 text-cyber-blue">
+                      <Github size={24} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-xl text-cyber-lightest mb-1">GitHub</p>
+                      <a 
+                        href="https://github.com/Sudinesh5a1" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cyber-link text-lg"
+                      >
+                        Sudinesh5a1
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
