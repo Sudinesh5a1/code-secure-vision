@@ -2,7 +2,8 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { FileText, Calendar, MapPin, Briefcase, Award, Languages, Code } from "lucide-react";
+import { FileText, Calendar, MapPin, Briefcase, Award, Languages, Code, Mail, Phone, Linkedin, Github } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Resume: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Resume: React.FC = () => {
                 <div className="flex flex-col items-center mb-8">
                   <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-cyber-blue/30 mb-4">
                     <img 
-                      src="/lovable-uploads/49577698-3fd5-42d1-9a84-7e1bcc91cf04.png" 
+                      src="/lovable-uploads/522de71e-206f-42b4-a9e4-d486f93800bd.png" 
                       alt="Sudinesh Reddy Vuluvala" 
                       className="w-full h-full object-cover"
                     />
@@ -33,16 +34,38 @@ const Resume: React.FC = () => {
                     </h3>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
-                        <span className="text-cyber-blue">📞</span>
+                        <Phone size={16} className="mt-1 text-cyber-blue" />
                         <span>7661020602</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-cyber-blue">✉️</span>
+                        <Mail size={16} className="mt-1 text-cyber-blue" />
                         <span>sudineshreddy@gmail.com</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-cyber-blue">📍</span>
-                        <span>Nandyal,AndhraPradesh</span>
+                        <MapPin size={16} className="mt-1 text-cyber-blue" />
+                        <span>Nandyal, Andhra Pradesh</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Linkedin size={16} className="mt-1 text-cyber-blue" />
+                        <a 
+                          href="https://linkedin.com/in/sudinesh-reddy-vuluvala-43972327a" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-cyber-blue transition-colors"
+                        >
+                          LinkedIn Profile
+                        </a>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Github size={16} className="mt-1 text-cyber-blue" />
+                        <a 
+                          href="https://github.com/Sudinesh5a1" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-cyber-blue transition-colors"
+                        >
+                          GitHub Profile
+                        </a>
                       </li>
                     </ul>
                   </div>
