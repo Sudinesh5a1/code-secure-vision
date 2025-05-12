@@ -23,18 +23,12 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=800&h=500"
   },
   {
-    title: "Network Traffic Analyzer",
+    title: "Brute Force Password Cracking",
     description: 
-      "Tool that monitors and analyzes network traffic to identify suspicious patterns and potential security threats.",
-    tech: ["Python", "Networking", "Data Analysis"],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800&h=500"
-  },
-  {
-    title: "Web Application Security Scanner",
-    description: 
-      "A scanner that identifies common vulnerabilities in web applications such as XSS, SQL injection, and CSRF vulnerabilities.",
-    tech: ["Python", "Web Security", "OWASP"],
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800&h=500"
+      "A tool designed to demonstrate how brute force attacks work against password systems, useful for educational purposes and security testing.",
+    tech: ["Python", "Security", "Cryptography", "Ethical Hacking"],
+    github: "https://github.com/Sudinesh5a1",
+    image: "https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&q=80&w=800&h=500"
   }
 ];
 
@@ -53,7 +47,7 @@ const ProjectsSection: React.FC = () => {
           approach to solving security challenges.
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index}
